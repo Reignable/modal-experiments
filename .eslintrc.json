@@ -1,0 +1,79 @@
+{
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
+  "overrides": [
+    {
+      "overrides": [
+        {
+          "files": [
+            "*.stories.ts"
+          ],
+          "extends": [
+            "plugin:storybook/recommended"
+          ]
+        }
+      ],
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:rxjs/recommended",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:@stylistic/eslint-plugin/recommended-extends"
+      ],
+      "files": [
+        "*.ts"
+      ],
+      "plugins": [
+        "rxjs-angular"
+      ],
+      "parserOptions": {
+        "project": [
+          "tsconfig.json"
+        ]
+      },
+      "rules": {
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "prefix": "app",
+            "style": "kebab-case",
+            "type": "element"
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "prefix": "app",
+            "style": "camelCase",
+            "type": "attribute"
+          }
+        ],
+        "rxjs-angular/prefer-async-pipe": "error",
+        "rxjs-angular/prefer-takeuntil": "error",
+        "rxjs-angular/prefer-composition": "error"
+      }
+    },
+    {
+      "files": [
+        "*.spec.ts"
+      ],
+      "extends": [
+        "plugin:testing-library/angular",
+        "plugin:jest/recommended"
+      ]
+    },
+    {
+      "extends": [
+        "plugin:@angular-eslint/template/recommended",
+        "plugin:@angular-eslint/template/accessibility"
+      ],
+      "files": [
+        "*.html"
+      ],
+      "rules": {}
+    }
+  ],
+  "root": true
+}
