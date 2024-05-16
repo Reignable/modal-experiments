@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core'
+import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core'
 import { ModalComponent } from './modal/modal.component'
 import { ModalTriggerDirective } from './modal-trigger.directive'
 
@@ -11,11 +11,20 @@ import { ModalTriggerDirective } from './modal-trigger.directive'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
+  @ViewChild(ModalComponent) modal: ModalComponent | undefined
+
   handleModalOpened(): void {
-    console.log('Modal opened')
+    console.log('Modal opened event')
   }
 
   handleModalClosed(): void {
-    console.log('Modal closed')
+    console.log('Modal closed event')
+  }
+
+  openModal(): void {
+    console.log('Opening modal from app component')
+    if (this.modal) {
+      this.modal.openModal()
+    }
   }
 }
