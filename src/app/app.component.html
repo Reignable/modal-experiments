@@ -1,5 +1,4 @@
-<app-modal>
-  <!-- Need to attach the click of this button to opening the modal -->
-  <button ngProjectAs="trigger">Open</button>
+<app-modal (opened)="handleModalOpened()" (closed)="handleModalClosed()">
+  <button appModalTrigger>Open</button>
   <div>CONTENT!</div>
 </app-modal>
