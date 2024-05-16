@@ -5,7 +5,9 @@
   <div @fade class="backdrop" (click)="closeModal()" cdkTrapFocus>
     <div class="card">
       <ng-content></ng-content>
-      <button (click)="closeModal()">Close</button>
+      @if (!_hideClose) {
+        <button (click)="closeModal()">Close</button>
+      }
     </div>
   </div>
 }

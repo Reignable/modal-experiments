@@ -1,5 +1,17 @@
-<app-modal (opened)="handleModalOpened()" (closed)="handleModalClosed()">
-  <button appModalTrigger>Open</button>
-  <div>CONTENT!</div>
+<app-modal
+  hideClose
+  (opened)="handleModalOpened()"
+  (closed)="handleModalClosed()"
+>
+  <button appModalTrigger>Do a thing</button>
+  <div>
+    <h1>Are you sure you want to do the thing?</h1>
+    <p>Doing the thing will cause a thing to happen.</p>
+    <button (click)="doTheThing()">Yes</button>
+    <button (click)="dontDoTheThing()">No</button>
+  </div>
 </app-modal>
 <button (click)="openModal()">Open Remote</button>
+@if (thingDone()) {
+  <p>Thing done!</p>
+}

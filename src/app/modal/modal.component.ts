@@ -1,5 +1,5 @@
 import { animate, state, style, transition, trigger } from '@angular/animations'
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Output, inject } from '@angular/core'
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, Output, inject } from '@angular/core'
 import { A11yModule } from '@angular/cdk/a11y'
 
 @Component({
@@ -17,6 +17,11 @@ import { A11yModule } from '@angular/cdk/a11y'
   ],
 })
 export class ModalComponent {
+  _hideClose = false
+  @Input() set hideClose(value: string | boolean) {
+    this._hideClose = value === '' || value === 'true' || value === true
+  }
+
   @Output() private opened = new EventEmitter<void>()
   @Output() private closed = new EventEmitter<void>()
 

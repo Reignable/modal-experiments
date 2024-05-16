@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core'
+import { ChangeDetectionStrategy, Component, ViewChild, signal } from '@angular/core'
 import { ModalComponent } from './modal/modal.component'
 import { ModalTriggerDirective } from './modal-trigger.directive'
 
@@ -13,12 +13,25 @@ import { ModalTriggerDirective } from './modal-trigger.directive'
 export class AppComponent {
   @ViewChild(ModalComponent) modal: ModalComponent | undefined
 
+  thingDone = signal(false)
+
   handleModalOpened(): void {
     console.log('Modal opened event')
   }
 
   handleModalClosed(): void {
     console.log('Modal closed event')
+  }
+
+  doTheThing(): void {
+    console.log('Doing the thing')
+    this.modal?.closeModal()
+    this.thingDone.set(true)
+  }
+
+  dontDoTheThing(): void {
+    console.log('Not doing the thing')
+    this.modal?.closeModal()
   }
 
   openModal(): void {
