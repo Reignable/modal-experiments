@@ -1,0 +1,16 @@
+.backdrop {
+  position: absolute;
+      inset: 0;
+      background-color: #0000004f;
+      display: grid;
+      place-items: center;
+}
+
+.card {
+  background-color: white;
+  padding: 1.25rem;
+  border-radius: 0.625rem;
+  box-shadow: 0 0 10px 0 #0000004f;
+  max-width: 31.25rem;
+  width: 100%;
+}

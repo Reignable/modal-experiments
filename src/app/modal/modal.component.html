@@ -1,5 +1,11 @@
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <ng-content select="[appModalTrigger]"></ng-content>
 @if (open) {
-  <ng-content></ng-content>
-  <button (click)="closeModal()">Close</button>
+  <div @fade class="backdrop" (click)="closeModal()">
+    <div class="card">
+      <ng-content></ng-content>
+      <button (click)="closeModal()">Close</button>
+    </div>
+  </div>
 }

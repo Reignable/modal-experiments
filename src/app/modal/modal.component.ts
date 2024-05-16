@@ -1,10 +1,18 @@
+import { animate, state, style, transition, trigger } from '@angular/animations'
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Output, inject } from '@angular/core'
 
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
+  styleUrl: './modal.component.scss',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [
+    trigger('fade', [
+      state('void', style({ opacity: 0 })),
+      transition(':enter, :leave', animate(200)),
+    ]),
+  ],
 })
 export class ModalComponent {
   @Output() opened = new EventEmitter<void>()
