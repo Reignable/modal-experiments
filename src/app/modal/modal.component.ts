@@ -17,20 +17,24 @@ import { A11yModule } from '@angular/cdk/a11y'
   ],
 })
 export class ModalComponent {
-  @Output() opened = new EventEmitter<void>()
-  @Output() closed = new EventEmitter<void>()
+  @Output() private opened = new EventEmitter<void>()
+  @Output() private closed = new EventEmitter<void>()
 
-  changeDetectorRef = inject(ChangeDetectorRef)
-  open = false
+  private changeDetectorRef = inject(ChangeDetectorRef)
+  private _open = false
+
+  get open() {
+    return this._open
+  }
 
   openModal(): void {
-    this.open = true
+    this._open = true
     this.opened.emit()
     this.changeDetectorRef.markForCheck()
   }
 
   closeModal(): void {
-    this.open = false
+    this._open = false
     this.closed.emit()
     this.changeDetectorRef.markForCheck()
   }
