@@ -1,11 +1,13 @@
 import { animate, state, style, transition, trigger } from '@angular/animations'
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Output, inject } from '@angular/core'
+import { A11yModule } from '@angular/cdk/a11y'
 
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
   styleUrl: './modal.component.scss',
   standalone: true,
+  imports: [A11yModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('fade', [
